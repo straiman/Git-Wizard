@@ -12,6 +12,7 @@ class Storage {
             const finalObject = Object.assign(userInfo, value);
             localStorage.setItem(key, JSON.stringify(finalObject));
         } else {
+            
             localStorage.setItem(key, JSON.stringify(value));
         }
     }    
@@ -19,7 +20,7 @@ class Storage {
     load(key) {
         return JSON.parse(localStorage.getItem(key));
     }
-    
+
 
     delete(key) {
         localStorage.removeItem(key);
