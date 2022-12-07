@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
 }
 
 html {
@@ -10,20 +11,24 @@ html {
 
 .card {
     z-index: 0;
-    border: none;
+    border: none !important;
     border-radius: 0.5rem;
     position: relative;
 }
 
 .main-box {
-    background-color: rgba(102, 51, 153, 0.048);
+    background-image: linear-gradient(to right bottom, #9d00ff88, #ab67ffc2, #c19dff, #dcceff, #fcfcfc);
+    /* background-color: rgba(102, 51, 153, 0.048); */
     padding: 7px;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.09);
 }
 
 
 /* header */
 header {
-    color: rebeccapurple;
+    color: white;
+    font-weight: 700;
     font-size: 2rem;
     margin-top: 15px;
 
@@ -40,19 +45,24 @@ header {
 }
 
 div.wiz-form {
-    padding-top: 50px;
+    padding-top: 70px;
 }
 
 label {
+    min-width: 90px;
     padding-right: 20px;
+    margin-left: 10px;
+    font-weight: 550;
 }
 
 input {
     width: 350px;
+    border: rebeccapurple 1.5px solid;
 }
 
 .wiz-form-item {
     text-align: left;
+    margin-bottom: 30px;
 }
 
 /* button bar */
@@ -65,22 +75,23 @@ button {
     box-sizing: border-box;
     width: 70px;
     border: 2px rgba(102, 51, 153, 0.655) solid;
-    background-color: rgba(160, 119, 200, 0.23);
+    box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.482);
+    background-color: rgba(238, 238, 238, 0.904);
+    color: black;
     padding: 1px 5px 1px 5px;
 }
 
 button:hover {
     border: 2px rebeccapurple solid;
-    background-color: rgb(161, 121, 200);
+    background-color: rgba(234, 173, 245, 0.187);
 }
 
 .wiz-form {
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.482);
     padding: 20px 40px 30px 40px;
     box-sizing: border-box;
     border-radius: 5px;
     width: 94%;
-    margin: 0 3% 20px 3%;
+    margin: 30px 3% 40px 3%;
     min-height: 20rem;
 }
-
