@@ -29,3 +29,4 @@ class Storage {
         localStorage.removeItem(key);
     }
 }
+export default Storage;
