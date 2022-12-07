@@ -1,0 +1,106 @@
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+new file mode 100644
+--- /dev/null	(date 1670398765027)
++++ b/index.html	(date 1670398765027)
+@@ -0,0 +1,22 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta http-equiv="X-UA-Compatible" content="IE=edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Wizard</title>
++</head>
++<body>
++    <header>Welcome</header>
++    <main>
++        <div class="wiz-form">
++            <div class="wiz-form-item">
++                <label>Click the button to start the form.</label>
++            </div>
++        </div>
++        <div class="wiz-nav">
++            <button type="button" id="nextBtn">Next</button>
++        </div>
++    </main>
++</body>
++</html>
+\ No newline at end of file
+Index: personal-details.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/personal-details.html b/personal-details.html
+new file mode 100644
+--- /dev/null	(date 1670398765027)
++++ b/personal-details.html	(date 1670398765027)
+@@ -0,0 +1,24 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta http-equiv="X-UA-Compatible" content="IE=edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Wizard</title>
++</head>
++<body>
++    <header>Personal Details</header>
++    <main>
++        <div class="wiz-form">
++            <div class="wiz-form-item">
++                <label></label>
++                <input type="text">
++            </div>
++        </div>
++        <div class="wiz-nav">
++            <button type="button" id="backBtn">Back</button>
++            <button type="button" id="nextBtn">Next</button>
++        </div>
++    </main>
++</body>
++</html>
+\ No newline at end of file
+Index: storage.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/storage.js b/storage.js
+new file mode 100644
+--- /dev/null	(date 1670398765027)
++++ b/storage.js	(date 1670398765027)
+@@ -0,0 +1,28 @@
++class Storage {
++    isStored(key) {
++        if (localStorage.getItem(key) === null) {
++            return false;
++        }
++        return true;
++    }
++
++    store(key, value) {
++        if(localStorage.key) {
++            const userInfo = JSON.parse(localStorage.getItem(key));
++            const finalObject = Object.assign(userInfo, value);
++            localStorage.setItem(key, JSON.stringify(finalObject));
++        } else {
++            
++            localStorage.setItem(key, JSON.stringify(value));
++        }
++    }    
++
++    load(key) {
++        return JSON.parse(localStorage.getItem(key));
++    }
++
++
++    delete(key) {
++        localStorage.removeItem(key);
++    }
++}

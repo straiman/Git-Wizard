@@ -60,6 +60,15 @@ class Validation{
         return pattern.test(inp);
     }
 
+    /**
+     * Method returns true if the user's age >= 18 otherwise false;
+     * @param inp - integer/string
+     * @returns {boolean}
+     */
+    static birthValidation(inp){
+        return (Number(inp) >= 18);
+    }
+
 }
 
 export default Validation;
