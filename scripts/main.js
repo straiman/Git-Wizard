@@ -15,7 +15,9 @@ const user = {
     name: '',
     email: '',
     bday: '',
-    address: '',
+    city: '',
+    street: '',
+    number: '',
     image: '',
     hobbies: ''
 };
