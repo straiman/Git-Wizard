@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wizard</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <script src="scripts/main.js" type="module"></script>
 </head>
 <body>
     <header>Personal Details</header>
     <main>
         <div class="wiz-form">
             <div class="wiz-form-item">
-                <label></label>
-                <input type="text">
+                <label for="wiz-name">Name</label>
+                <input type="text" id="wiz-name">
+            </div>
+            <div class="wiz-form-item">
+                <label for="wiz-email">Email</label>
+                <input type="text" id="wiz-email">
+            </div>
+            <div class="wiz-form-item">
+                <label for="wiz-birthdate">Birthdate</label>
+                <input type="text" id="wiz-birthdate">
             </div>
         </div>
         <div class="wiz-nav">
