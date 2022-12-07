@@ -68,6 +68,21 @@ class Validation{
     static birthValidation(inp){
         return (Number(inp) >= 18);
     }
+
+    /**
+     * Method returns true if the URL provided by user is valid otherwise false;
+     * @param inp - string
+     * @returns {boolean}
+     */
+    static urlValidation(inp){
+        const urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+            '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+        return !!urlPattern.test(inp);
+    }
 }
 
 export default Validation;
