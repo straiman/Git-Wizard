@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard</title>
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>Address</header>
+    <main>
+        <div class="wiz-form">
+            <div class="wiz-form-item">
+                <label for="wiz-city">City</label>
+                <input type="text" id="wiz-city">
+            </div>
+            <div class="wiz-form-item">
+                <label for="wiz-street">Street</label>
+                <input type="text" id="wiz-street">
+            </div>
+            <div class="wiz-form-item">
+                <label for="wiz-number">Number</label>
+                <input type="number" id="wiz-number">
+            </div>
+        </div>
+        <div class="wiz-nav">
+            <button type="button" id="backBtn">Back</button>
+            <button type="button" id="nextBtn">Next</button>
+        </div>
+    </main>
+
+    <script>
+        const city = document.getElementById('wiz-city');
+        const street = document.getElementById('wiz-street');
+        const number = document.getElementById('wiz-number');
+
+        const storageKeys = new Map([
+            ['wiz-city', city],
+            ['wiz-street', street],
+            ['wiz-number', number]
+        ]);
+    </script>
+</body>
+</html>
