@@ -9,12 +9,11 @@ class Storage {
 
     //Method for save a value, into the localstorage
     store(key, value) {
-        if(localStorage.key) {
+        if(localStorage[`${key}`]) {
             const userInfo = JSON.parse(localStorage.getItem(key));
             const finalObject = Object.assign(userInfo, value);
             localStorage.setItem(key, JSON.stringify(finalObject));
         } else {
-            
             localStorage.setItem(key, JSON.stringify(value));
         }
     }    
