@@ -68,7 +68,6 @@ class Validation{
     static birthValidation(inp){
         return (Number(inp) >= 18);
     }
-
 }
 
 export default Validation;
