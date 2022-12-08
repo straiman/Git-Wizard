@@ -9,7 +9,7 @@ let img;
 let hobbies;
 let backBtn;
 let submitButton;
-
+let storage;
 function loadElements() {
     name = document.querySelector('#nameSummary');
     email = document.querySelector('#emailSummary');
@@ -22,12 +22,11 @@ function loadElements() {
     submitButton = document.querySelector('#submitBtn');
 }
 
-function getSummaryData(storageKey = 'wiz-user'){
-    const storage = new Storage();
+function getSummaryData(){
     let user;
-
-    if(storage.isStored(storageKey)){
-        user = storage.load(storageKey);
+    storage = new Storage();
+    if(storage.isStored()){
+        user = storage.load();
     }
     return user;
 }
@@ -60,7 +59,7 @@ function run() {
         location = './miscellaneous.html';
     })
     submitButton.addEventListener('click', () => {
-        storage.delete(storageKey);
+        storage.delete();
         location = './index.html';
     })
 }
