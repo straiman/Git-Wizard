@@ -30,7 +30,10 @@ function goNextPage() {
 function checkRequired() {
   if (
     Validation.isRequired(city.value) &&
-    Validation.isRequired(street.value)
+    Validation.lengthValidation(city.value, 20) &&
+    Validation.isRequired(street.value) &&
+    Validation.lengthValidation(street.value, 20) &&
+    Validation.naturalNumberValidation(num.value)
   ) {
     goNextPage();
   }
