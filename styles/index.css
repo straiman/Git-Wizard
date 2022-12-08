@@ -104,7 +104,7 @@ input {
 button {
     margin: 5px;
     box-sizing: border-box;
-    width: 70px;
+    width: 80px;
     border: 2px rgba(102, 51, 153, 0.655) solid;
     box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.482);
     background-color: rgba(238, 238, 238, 0.904);
@@ -125,4 +125,8 @@ button:hover {
     width: 94%;
     margin: 30px 3% 40px 3%;
     min-height: 20rem;
+}
+
+img {
+    max-width: 100%;
 }
