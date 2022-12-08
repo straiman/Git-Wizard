@@ -6,6 +6,7 @@ let nextBtn;
 let city;
 let street;
 let num;
+
 const storage = new Storage();
 
 function loadElements() {
@@ -57,8 +58,10 @@ function checkRequired() {
     Validation.lengthValidation(city.value, 20) &&
     Validation.isRequired(street.value) &&
     Validation.lengthValidation(street.value, 20) &&
-    Validation.naturalNumberValidation(num.value)
   ) {
+    if (num) {
+      Validation.naturalNumberValidation(num.value)
+    }
     goNextPage();
   }
 }

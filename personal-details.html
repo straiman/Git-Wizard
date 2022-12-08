@@ -17,21 +17,21 @@
                     <header>Personal Details</header>
                     <main class="form-elements">
                         <div class="wiz-form">
-                            <div class="wiz-form-item">
+                            <div>
                                 <label for="wiz-name"><span>*</span>Name:</label>
                                 <input type="text" id="wiz-name" placeholder="First Last">
                             </div>
-                            <div class="wiz-form-item">
+                            <div>
                                 <label for="wiz-email"><span>*</span>Email:</label>
                                 <input type="text" id="wiz-email" placeholder="bobsmith@gmail.com">
                             </div>
-                            <div class="wiz-form-item">
+                            <div>
                                 <label for="wiz-birthdate"><span>*</span>Birthdate:</label>
-                                <input type="date" id="wiz-birthdate">
+                                <input type="date" id="wiz-birthdate" required pattern="\d{4}-\d{2}-\d{2}">
                                 <p>Must be older than 18 years old to continue.</p>
                             </div>
                         </div>
-                        <div class="wiz-nav">
+                        <div>
                             <button type="button" id="backBtn">Back</button>
                             <button type="button" id="nextBtn">Next</button>
                         </div>
