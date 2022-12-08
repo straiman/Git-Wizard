@@ -10,16 +10,16 @@ class Storage {
     return true;
   }
 
-  //Method for save a value, into the localstorage
-  store(value) {
-    if (localStorage[`${this.key}`]) {
-      const userInfo = JSON.parse(localStorage.getItem(this));
-      const finalObject = Object.assign(userInfo, value);
-      localStorage.setItem(this.key, JSON.stringify(finalObject));
-    } else {
-      localStorage.setItem(this.key, JSON.stringify(value));
-    }
-  }
+    //Method for save a value, into the localstorage
+    store(value) {
+        if(localStorage[`${this.key}`]) {
+            const userInfo = JSON.parse(localStorage.getItem(this.key));
+            const finalObject = Object.assign(userInfo, value);
+            localStorage.setItem(this.key, JSON.stringify(finalObject));
+        } else {
+            localStorage.setItem(this.key, JSON.stringify(value));
+        }
+    }    
 
   //Method to load a value from the localstorage
   load() {
