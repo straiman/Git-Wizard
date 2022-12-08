@@ -66,8 +66,8 @@ class Validation {
    * @param day - integer/string
    * @returns {boolean}
    */
-  static birthValidation(year, month, day) {
-    const date1 = new Date(`${year}-${month}-${day}`);
+  static birthValidation(val) {
+    const date1 = new Date(val);
     const date2 = Date.now();
     const age = (date2 - date1) / 31536000000;
     return age >= 18;
@@ -89,3 +89,4 @@ class Validation {
 }
 
 export default Validation;
+
