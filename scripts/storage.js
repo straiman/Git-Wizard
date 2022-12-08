@@ -27,5 +27,21 @@ class Storage {
     delete(key) {
         localStorage.removeItem(key);
     }
+
+    //Method to return if a property already exists
+    checkProperty(key, property) {
+        const userInfo = JSON.parse(localStorage.getItem(key));
+        if(userInfo[property]) {
+            return true;
+        }
+        return false;
+    }
+
+    //Method to return a singular property
+    getProperty(key, property) {
+        const userInfo = JSON.parse(localStorage.getItem(key));
+        return userInfo[property];
+    }
 }
+
 export default Storage;
