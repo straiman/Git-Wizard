@@ -1,6 +1,4 @@
 class Storage {
-    #key;
-
     constructor() {
         this.key = 'wiz-user'
     }
