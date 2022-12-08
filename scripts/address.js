@@ -9,21 +9,16 @@ let num;
 const storage = new Storage();
 const lastInfo = storage.load();
 
-console.log(lastInfo);
-
 function checkIfSaved() {
-  if (lastInfo) {
-    if (
-      !Object.hasOwn(lastInfo, "name") &&
-      !Object.hasOwn(lastInfo, "email") &&
-      !Object.hasOwn(lastInfo, "bdate")
-    ) {
-      location = "./index.html";
-    }
+  if (
+    !lastInfo ||
+    !Object.hasOwn(lastInfo, "name") ||
+    !Object.hasOwn(lastInfo, "email") ||
+    !Object.hasOwn(lastInfo, "bdate")
+  ) {
+    location = "./index.html";
   }
 }
-
-checkIfSaved();
 
 function loadElements() {
   backBtn = document.getElementById("backBtn");

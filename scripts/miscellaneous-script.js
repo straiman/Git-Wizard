@@ -18,13 +18,12 @@ const storage = new Storage();
 const lastInfo = storage.load();
 
 function checkIfSaved() {
-  if (lastInfo) {
-    if (
-      !Object.hasOwn(lastInfo, "city") ||
-      !Object.hasOwn(lastInfo, "street")
-    ) {
-      location = "./index.html";
-    }
+  if (
+    !lastInfo ||
+    !Object.hasOwn(lastInfo, "city") ||
+    !Object.hasOwn(lastInfo, "street")
+  ) {
+    location = "./index.html";
   }
 }
 
