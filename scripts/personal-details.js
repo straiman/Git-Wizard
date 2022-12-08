@@ -12,22 +12,22 @@ backBtn.addEventListener("click", goBackPage);
 backBtn.addEventListener("click", goBackPage);
 nextBtn.addEventListener("click", checkRequired);
 
-
 const storage = new Storage();
 
-if(storage.isStored()) {
-    const lastInfo = storage.load();
-  
-    if(Object.hasOwn(lastInfo, 'name')) {
-      name.value = lastInfo.name;
-    }
-    if(Object.hasOwn(lastInfo, 'email')) {
-      email.value = lastInfo.email;
-    }
-    if(Object.hasOwn(lastInfo, 'bdate')) {
-      birthDate.value = lastInfo.bdate;
-    }
+if (storage.isStored()) {
+  const lastInfo = storage.load();
+
+  if (Object.hasOwn(lastInfo, "name")) {
+    name.value = lastInfo.name;
   }
+  if (Object.hasOwn(lastInfo, "email")) {
+    email.value = lastInfo.email;
+  }
+  if (Object.hasOwn(lastInfo, "bdate")) {
+    birthDate.value = lastInfo.bdate;
+    date = lastInfo.bdate;
+  }
+}
 
 birthDate.addEventListener("change", (e) => {
   date = e.target.value;
@@ -38,14 +38,14 @@ function goBackPage() {
 }
 
 function goNextPage() {
-    const newObject = {
-        name: name.value,
-        email: email.value,
-        bdate: birthDate.value
-      }
-    
-      storage.store(newObject);
-    location = "./address.html";
+  const newObject = {
+    name: name.value,
+    email: email.value,
+    bdate: birthDate.value,
+  };
+
+  storage.store(newObject);
+  location = "./address.html";
 }
 
 function checkRequired() {
