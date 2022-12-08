@@ -7,12 +7,11 @@ const name = document.getElementById("wiz-name");
 const email = document.getElementById("wiz-email");
 const birthDate = document.getElementById("wiz-birthdate");
 
-let year;
-let month;
-let day;
-
+let date;
+backBtn.addEventListener("click", goBackPage);
 backBtn.addEventListener("click", goBackPage);
 nextBtn.addEventListener("click", checkRequired);
+
 
 const storage = new Storage();
 
@@ -31,10 +30,7 @@ if(storage.isStored()) {
   }
 
 birthDate.addEventListener("change", (e) => {
-  const arr = e.target.value.split("-");
-  year = arr[0];
-  month = arr[1];
-  day = arr[2];
+  date = e.target.value;
 });
 
 function goBackPage() {
@@ -57,7 +53,7 @@ function checkRequired() {
     Validation.nameValidation(name.value) &&
     Validation.lengthValidation(name.value, 20) &&
     Validation.emailValidation(email.value) &&
-    Validation.birthValidation(year, month, day)
+    Validation.birthValidation(date)
   ) {
     goNextPage();
   }
