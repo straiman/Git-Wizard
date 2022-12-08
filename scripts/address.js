@@ -13,11 +13,14 @@ console.log(lastInfo);
 
 function checkIfSaved() {
   if (lastInfo) {
-    !Object.hasOwn(lastInfo, "name") ||
-      !Object.hasOwn(lastInfo, "email") ||
-      !Object.hasOwn(lastInfo, "birthdate");
+    if (
+      !Object.hasOwn(lastInfo, "name") &&
+      !Object.hasOwn(lastInfo, "email") &&
+      !Object.hasOwn(lastInfo, "bdate")
+    ) {
+      location = "./index.html";
+    }
   }
-  location = "./index.html";
 }
 
 checkIfSaved();
