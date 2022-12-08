@@ -19,7 +19,7 @@ const storage = new Storage();
 if(storage.isStored()) {
   const lastInfo = storage.load();
 
-  image.value = lastInfo.image;
+  image.value = lastInfo.img;
 
   if(Object.hasOwn(lastInfo, 'chess')) {
     chess.checked = true;
@@ -46,11 +46,22 @@ function goBackPage() {
 function goNextPage() {
   const newObject = {
     img: image.value,
-    chess: chess.value,
-    movies: movies.value,
-    sports: sports.value,
-    cars: cars.value,
-    dolls: dolls.value
+  }
+
+  if(chess.checked) {
+    newObject.chess = true
+  }
+  if(movies.checked) {
+    newObject.movies = true
+  }
+  if(sports.checked) {
+    newObject.sports = true
+  }
+  if(cars.checked) {
+    newObject.cars = true
+  }
+  if(dolls.checked) {
+    newObject.dolls = true
   }
 
   storage.store(newObject);
