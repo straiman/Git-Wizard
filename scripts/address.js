@@ -8,6 +8,8 @@ let street;
 let num;
 
 const storage = new Storage();
+backBtn.addEventListener("click", goBackPage);
+nextBtn.addEventListener("click", checkRequired);
 
 function loadElements() {
   backBtn = document.getElementById("backBtn");
@@ -19,23 +21,26 @@ function loadElements() {
 
 loadElements();
 
-if(storage.isStored()) {
-  const lastInfo = storage.load();
-
-  if(Object.hasOwn(lastInfo, 'city')) {
-    city.value = lastInfo.city;
-  }
-  if(Object.hasOwn(lastInfo, 'street')) {
-    street.value = lastInfo.street;
-  }
-  if(Object.hasOwn(lastInfo, 'number')) {
-    num.value = lastInfo.number;
-  }
+if (!data) {
+  //redirect to welcome page
+  location = "./index.html";
 }
 
+if (storage.isStored()) {
+  const lastInfo = storage.load();
 
-backBtn.addEventListener("click", goBackPage);
-nextBtn.addEventListener("click", checkRequired);
+  if (Object.hasOwn(lastInfo, "city")) {
+    city.value = lastInfo.city;
+  }
+  if (Object.hasOwn(lastInfo, "street")) {
+    street.value = lastInfo.street;
+  }
+  if (Object.hasOwn(lastInfo, "number")) {
+    num.value = lastInfo.number;
+  }
+} else {
+  location = "./index.html";
+}
 
 function goBackPage() {
   location = "./personal-details.html";
@@ -45,8 +50,8 @@ function goNextPage() {
   const newObject = {
     city: city.value,
     street: street.value,
-    number: num.value
-  }
+    number: num.value,
+  };
 
   storage.store(newObject);
   location = "./miscellaneous.html";
@@ -57,10 +62,10 @@ function checkRequired() {
     Validation.isRequired(city.value) &&
     Validation.lengthValidation(city.value, 20) &&
     Validation.isRequired(street.value) &&
-    Validation.lengthValidation(street.value, 20) &&
+    Validation.lengthValidation(street.value, 20)
   ) {
     if (num) {
-      Validation.naturalNumberValidation(num.value)
+      Validation.naturalNumberValidation(num.value);
     }
     goNextPage();
   }
