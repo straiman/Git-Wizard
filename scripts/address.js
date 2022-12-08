@@ -9,6 +9,19 @@ let num;
 const storage = new Storage();
 const lastInfo = storage.load();
 
+console.log(lastInfo);
+
+function checkIfSaved() {
+  if (lastInfo) {
+    !Object.hasOwn(lastInfo, "name") ||
+      !Object.hasOwn(lastInfo, "email") ||
+      !Object.hasOwn(lastInfo, "birthdate");
+  }
+  location = "./index.html";
+}
+
+checkIfSaved();
+
 function loadElements() {
   backBtn = document.getElementById("backBtn");
   nextBtn = document.getElementById("nextBtn");
@@ -32,16 +45,6 @@ if (storage.isStored()) {
   }
   if (Object.hasOwn(lastInfo, "number")) {
     num.value = lastInfo.number;
-  }
-}
-
-function checkIfSaved() {
-  if (
-    !Object.hasOwn(lastInfo, "name") &&
-    !Object.hasOwn(lastInfo, "email") &&
-    !Object.hasOwn(lastInfo, "birthdate")
-  ) {
-    location = "./index.html";
   }
 }
 
