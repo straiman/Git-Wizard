@@ -1,43 +1,71 @@
 import Storage from "./storage.js";
 
-const name = document.querySelector('#nameSummary');
-const email = document.querySelector('#emailSummary');
-const birth = document.querySelector('#birthDateSummary');
-const city = document.querySelector('#citySummary');
-const street = document.querySelector('#streetSummary'); // street/number
-const img = document.querySelector('#imgSummary');
-const hobbies = document.querySelector('#hobbiesSummary');
-const backBtn = document.querySelector('#backBtn')
-const submitButton = document.querySelector('#submitBtn');
+let name;
+let email;
+let birth;
+let city;
+let street; // street/number
+let img;
+let hobbies;
+let backBtn;
+let submitButton;
 
-
-const storage = new Storage();
-let user;
-const storageKey = 'wiz-user';
-
-if(storage.isStored(storageKey)){
-    user = storage.load(storageKey);
+function loadElements() {
+    name = document.querySelector('#nameSummary');
+    email = document.querySelector('#emailSummary');
+    birth = document.querySelector('#birthDateSummary');
+    city = document.querySelector('#citySummary');
+    street = document.querySelector('#streetSummary'); // street/number
+    img = document.querySelector('#imgSummary');
+    hobbies = document.querySelector('#hobbiesSummary');
+    backBtn = document.querySelector('#backBtn')
+    submitButton = document.querySelector('#submitBtn');
 }
 
-name.textContent += ` ${user.name}`;
-email.textContent += ` ${user.email}`;
-birth.textContent += ` ${user.bday}`;
-city.textContent +=  ` ${user.city}`;
-street.textContent += ` ${user.street}, ${user.number ? user.number : ''}`;
-img.src = user.image;
-if(user.hobbies){
-    hobbies.textContent += `${user.hobbies}`
-}else{
-    hobbies.textContent = '';
+function getSummaryData(storageKey = 'wiz-user'){
+    const storage = new Storage();
+    let user;
+
+    if(storage.isStored(storageKey)){
+        user = storage.load(storageKey);
+    }
+    return user;
 }
 
-backBtn.addEventListener('click', () => {
-    location = './miscellaneous.html';
-})
-submitButton.addEventListener('click', () => {
-    storage.delete(storageKey);
-    location = './index.html';
-})
+function fillElements(data){
+    name.textContent += ` ${data.name}`;
+    email.textContent += ` ${data.email}`;
+    birth.textContent += ` ${data.bday}`;
+    city.textContent +=  ` ${data.city}`;
+    street.textContent += ` ${data.street}, ${data.number ? data.number : ''}`;
+    img.src = data.image;
+    if(data.hobbies){
+        hobbies.textContent += `${data.hobbies}`
+    }else{
+        hobbies.textContent = '';
+    }
+}
+
+function run() {
+    const data = getSummaryData()
+    if(!data) {
+      //redirect to welcome page
+        location = './index.html'
+    }
+
+    loadElements()
+    fillElements(data)
+
+    backBtn.addEventListener('click', () => {
+        location = './miscellaneous.html';
+    })
+    submitButton.addEventListener('click', () => {
+        storage.delete(storageKey);
+        location = './index.html';
+    })
+}
+
+run()
 
 
 
