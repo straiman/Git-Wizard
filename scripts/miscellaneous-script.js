@@ -19,9 +19,13 @@ const lastInfo = storage.load();
 
 function checkIfSaved() {
   if (lastInfo) {
-    !Object.hasOwn(lastInfo, "city") || !Object.hasOwn(lastInfo, "street");
+    if (
+      !Object.hasOwn(lastInfo, "city") ||
+      !Object.hasOwn(lastInfo, "street")
+    ) {
+      location = "./index.html";
+    }
   }
-  location = "./index.html";
 }
 
 checkIfSaved();
