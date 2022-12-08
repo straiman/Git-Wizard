@@ -1,4 +1,5 @@
 import Validation from "./validation.js";
+import Storage from "./storage.js";
 
 const backBtn = document.getElementById("backBtn");
 const nextBtn = document.getElementById("nextBtn");
@@ -13,6 +14,22 @@ let day;
 backBtn.addEventListener("click", goBackPage);
 nextBtn.addEventListener("click", checkRequired);
 
+const storage = new Storage();
+
+if(storage.isStored()) {
+    const lastInfo = storage.load();
+  
+    if(Object.hasOwn(lastInfo, 'name')) {
+      name.value = lastInfo.name;
+    }
+    if(Object.hasOwn(lastInfo, 'email')) {
+      email.value = lastInfo.email;
+    }
+    if(Object.hasOwn(lastInfo, 'bdate')) {
+      birthDate.value = lastInfo.bdate;
+    }
+  }
+
 birthDate.addEventListener("change", (e) => {
   const arr = e.target.value.split("-");
   year = arr[0];
@@ -25,7 +42,14 @@ function goBackPage() {
 }
 
 function goNextPage() {
-  location = "./address.html";
+    const newObject = {
+        name: name.value,
+        email: email.value,
+        bdate: birthDate.value
+      }
+    
+      storage.store(newObject);
+    location = "./address.html";
 }
 
 function checkRequired() {
