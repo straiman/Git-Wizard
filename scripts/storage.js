@@ -1,36 +1,39 @@
 class Storage {
+    constructor() {
+        this.key = 'wiz-user'
+    }
     //This method check if the localstorage have some value with the key parameter
-    isStored(key) {
-        if (localStorage.getItem(key) === null) {
+    isStored() {
+        if (localStorage.getItem(this.key) === null) {
             return false;
         }
         return true;
     }
 
     //Method for save a value, into the localstorage
-    store(key, value) {
-        if(localStorage[`${key}`]) {
-            const userInfo = JSON.parse(localStorage.getItem(key));
+    store(value) {
+        if(localStorage[`${this.key}`]) {
+            const userInfo = JSON.parse(localStorage.getItem(this));
             const finalObject = Object.assign(userInfo, value);
-            localStorage.setItem(key, JSON.stringify(finalObject));
+            localStorage.setItem(this.key, JSON.stringify(finalObject));
         } else {
-            localStorage.setItem(key, JSON.stringify(value));
+            localStorage.setItem(this.key, JSON.stringify(value));
         }
     }    
 
     //Method to load a value from the localstorage
-    load(key) {
-        return JSON.parse(localStorage.getItem(key));
+    load() {
+        return JSON.parse(localStorage.getItem(this.key));
     }
 
     //Method to delete informacion from the localstorage
-    delete(key) {
-        localStorage.removeItem(key);
+    delete() {
+        localStorage.removeItem(this.key);
     }
 
     //Method to return if a property already exists
-    checkProperty(key, property) {
-        const userInfo = JSON.parse(localStorage.getItem(key));
+    checkProperty(property) {
+        const userInfo = JSON.parse(localStorage.getItem(this.key));
         if(userInfo[property]) {
             return true;
         }
@@ -38,8 +41,8 @@ class Storage {
     }
 
     //Method to return a singular property
-    getProperty(key, property) {
-        const userInfo = JSON.parse(localStorage.getItem(key));
+    getProperty(property) {
+        const userInfo = JSON.parse(localStorage.getItem(this.key));
         return userInfo[property];
     }
 }
