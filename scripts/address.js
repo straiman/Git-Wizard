@@ -1,12 +1,20 @@
 import Validation from "./validation.js";
 
+let backBtn;
+let nextBtn;
+let city;
+let street;
+let num;
+
 function loadElements() {
-  const backBtn = document.getElementById("backBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const city = document.getElementById("wiz-city");
-  const street = document.getElementById("wiz-street");
-  const num = document.getElementById("wiz-number");
+  backBtn = document.getElementById("backBtn");
+  nextBtn = document.getElementById("nextBtn");
+  city = document.getElementById("wiz-city");
+  street = document.getElementById("wiz-street");
+  num = document.getElementById("wiz-number");
 }
+
+loadElements();
 
 backBtn.addEventListener("click", goBackPage);
 nextBtn.addEventListener("click", checkRequired);
