@@ -73,6 +73,7 @@ class Validation {
     return age >= 18;
   }
 
+
   /**
    * Method returns true if the URL provided by user is valid otherwise false;
    * @param inp - string

@@ -6,9 +6,12 @@ const nextBtn = document.getElementById("nextBtn");
 const name = document.getElementById("wiz-name");
 const email = document.getElementById("wiz-email");
 const birthDate = document.getElementById("wiz-birthdate");
+
 let date;
 backBtn.addEventListener("click", goBackPage);
+backBtn.addEventListener("click", goBackPage);
 nextBtn.addEventListener("click", checkRequired);
+
 
 const storage = new Storage();
 
