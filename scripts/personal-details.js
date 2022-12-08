@@ -11,7 +11,7 @@ let month;
 let day;
 
 backBtn.addEventListener("click", goBackPage);
-nextBtn.addEventListener("click", goNextPage);
+nextBtn.addEventListener("click", checkRequired);
 
 birthDate.addEventListener("change", (e) => {
   const arr = e.target.value.split("-");
@@ -26,7 +26,6 @@ function goBackPage() {
 
 function goNextPage() {
   location = "./address.html";
-  console.log(birthDate.value);
 }
 
 function checkRequired() {
